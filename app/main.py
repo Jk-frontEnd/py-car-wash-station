@@ -1,12 +1,13 @@
 class Car:
-    def __init__(self, comfort_class: int, clean_mark: int, brand: str) -> None:
+    def __init__(self, 
+    comfort_class: int, clean_mark: int, brand: str) -> None:
         self.comfort_class = comfort_class
         self.clean_mark = clean_mark
         self.brand = brand
 
 
 class CarWashStation:
-    def __init__(self, 
+    def __init__(self,
                 distance_from_city_center: float, 
                 clean_power: int,
                 average_rating: float,
@@ -19,13 +20,10 @@ class CarWashStation:
         def serve_cars(cars: list) -> int:
             total_income = 0
             for car in cars:
-                if type(car.clean_mark) == "int" and type(self.clean_power) == "int":
-                    if car.clean_mark < self.clean_power:
-                        income = car.comfort_class * 1.25
-                        total_income += income
-                        car.clean_mark = self.clean_power
-                else:
-                    print("Incorrect data type")
+                if car.clean_mark < self.clean_power:
+                    income = car.comfort_class * 1.25
+                    total_income += income
+                    car.clean_mark = self.clean_power
             return round(total_income, 1)
 
         def calculate_washing_price(self, car: Car) -> float:
@@ -33,16 +31,12 @@ class CarWashStation:
             return round(total_price, 1)
 
         def wash_single_car(car: Car) -> None:
-            if type(car.clean_mark) == "int" and type(self.clean_power) == "int":
-                if car.clean_mark < self.clean_power:
-                    car.clean_mark = self.clean_power
-            else:
-                    print("Incorrect data type")
+            if car.clean_mark < self.clean_power:
+                car.clean_mark = self.clean_power
         
-        def rate_service(rating: int) -> None:
+        def rate_service(rating: self.count_of_ratings) -> None:
             if not (1 <= rating <= 5):
                 print("Rating must be between 1 and 5.")
 
             count_of_ratings += 1
-            
             self.average_rating = round(((self.average_rating * (self.count_of_ratings - 1)) + rating) / self.count_of_ratings, 1)
